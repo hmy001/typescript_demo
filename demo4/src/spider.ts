@@ -11,10 +11,10 @@ class Spider {
     constructor(private analyzer: Analyzer, private filepath: string) {
         this.initSpiderProcess();
     }
-    writeFile(fileContent: string) {
+    private writeFile(fileContent: string) {
         fs.writeFileSync(this.filepath, fileContent, {flag: 'w'});
     }
-    async initSpiderProcess() { // 初始化爬虫进程
+    private async initSpiderProcess() { // 初始化爬虫进程
         const fileContent = await this.analyzer.excuteAnalyzer();
         this.writeFile(fileContent);
     }
